@@ -21,6 +21,28 @@
   End
 
 """
-import random   # Python module named random
+# Random number guess game
 
-random_number = random.randint(1,20) # Generate a random number between 1 and 20
+import random  
+def random_number_guess():
+    random_number = random.randint(1, 20)  
+    guess_count = 0
+    max_attempts = 5  
+    print("Can you guess the random number between 1 to 20 ? ")
+    while guess_count < max_attempts:
+            user_guess = int(input(f"Attempt {guess_count + 1}/{max_attempts}: Enter your guess (1-20): "))
+            if user_guess < 1 or user_guess > 20:
+                print("Invalid input! Please enter a number between 1 and 20.")
+                continue  
+            guess_count += 1  
+            if user_guess == random_number:
+                print("Guessed correct number")
+                return  
+            elif user_guess < random_number:
+                print("Too Low! Try again.")
+            else:
+                print("Too High! Try again.")
+    
+    print("Game Over! The correct number was:", random_number)
+
+random_number_guess()
