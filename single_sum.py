@@ -9,3 +9,12 @@ Example
   Output: 2
 
 """
+# single _ sum
+
+num = int(input("Enter a number: "))
+def single_sum(n):
+    while n >= 10:  
+        n = sum(int(digit) for digit in str(n))
+    return n  
+result = single_sum(num)
+print(f"Output:", result)
